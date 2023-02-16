@@ -1,0 +1,23 @@
+// Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+
+Console.WriteLine("Enter 3 different numbers:");
+
+int number1 = Convert.ToInt32(Console.ReadLine());
+int number2 = Convert.ToInt32(Console.ReadLine());
+int number3 = Convert.ToInt32(Console.ReadLine());
+
+int[] array = new int[] { number1, number2, number3 };
+ 
+int max = int.MinValue;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] > max)
+    {
+        // найден больший элемент
+        max = array[i];
+    }
+}
+
+Console.WriteLine("max = ");
+Console.WriteLine(max);
+
