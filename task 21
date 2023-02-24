@@ -1,0 +1,45 @@
+// Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+// A (3,6,8); B (2,1,-7), -> 15.84
+// A (7,-5, 0); B (1,-1,9) -> 11.53
+
+int Method() // Метод принимает координату, введенную пользователем
+{
+	string scoord = Console.ReadLine();
+ 	int coord = Convert.ToInt32(scoord);
+ 	return coord;
+}
+
+double Sqr(int arg1, int arg2) // Метод считает часть формулы, которая повторяется под корнем 3 раза: (arg2 - arg1)^2
+{
+	int difference = arg2 - arg1;
+	double sqr = Math.Pow(difference, 2);
+	return sqr;
+}
+
+// Пользователь вводит поочередно все координаты 2 точек
+Console.WriteLine("Введите координаты первой точки");
+Console.WriteLine("x1:");
+int x1 = Method();
+Console.WriteLine("y1:");
+int y1 = Method();
+Console.WriteLine("z1:");
+int z1 = Method();
+
+Console.WriteLine("Введите координаты второй точки");
+Console.WriteLine("x2:");
+int x2 = Method();
+Console.WriteLine("y2:");
+int y2 = Method();
+Console.WriteLine("z2:");
+int z2 = Method();
+//Console.Write($"{x1} {y1} {z1} {x2} {y2} {z2}");
+
+// Далее - вычисляется расстояние между точками по формуле distance = sqrt((x2^2-x1^2)^2+(y2^2-y1^2)^2+(z2^2-z1^2)^2)
+double sqr1 = Sqr(x1, x2);
+double sqr2 = Sqr(y1, y2);
+double sqr3 = Sqr(z1, z2);
+//Console.WriteLine($"{sqr1} {sqr2} {sqr3}");
+double distance = Math.Sqrt(sqr1 + sqr2 + sqr3);
+distance = Math.Round(distance, 2);
+Console.WriteLine("Расстояние между точками равно:");
+Console.WriteLine(distance);
