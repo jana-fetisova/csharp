@@ -1,0 +1,30 @@
+// Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чиселв массиве.
+
+// Функция генерирует  массив 3-значных чисел нужной длины
+int[] GenerateArray(int length)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < length; i++)
+        array[i] = new Random().Next(100, 1000);
+    return array;
+}
+
+// Функция выводит массив 
+void PrintArray(int[] array)
+{
+    Console.WriteLine(String.Join(" ", array));
+}
+
+// Функция считает количество четных чисел в массиве
+int EvenCount(int[] array)
+{
+    int count = 0;
+    for(int i = 0; i < array.Length; i++)
+        if (array[i] % 2 == 0) count++;
+    return count;
+}
+
+int[] array = GenerateArray(10); // Генерируем массив из 10 3-значных чисел
+PrintArray(array); // Выводим массив на экран
+Console.WriteLine(); // Разделяем данные для красоты
+Console.WriteLine(EvenCount(array)); // Выводим количество положительных чисел в массиве
