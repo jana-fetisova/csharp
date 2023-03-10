@@ -1,0 +1,31 @@
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+// Функция генерирует массив случайных чисел нужной длины
+int[] GenerateArray(int length)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < length; i++)
+        array[i] = new Random().Next(0, 10);
+    return array;
+}
+
+// Функция выводит массив 
+void PrintArray(int[] array)
+{
+    Console.WriteLine(String.Join(" ", array));
+}
+
+// Функция считает сумму элементов на нечетных позициях
+int OddSum(int[] array)
+{
+    int sum = 0;
+    for(int i = 1; i < array.Length; i+=2)
+        sum = sum + array[i];
+    return sum;
+}
+
+int[] array = GenerateArray(10); // Генерируем массив из 10 случайных чисел
+PrintArray(array); // Выводим массив
+Console.WriteLine(); // Разделяем данные для красоты
+int s = OddSum(array); // Считаем сумму элементов на нечетных позициях
+Console.WriteLine(s); // Выводим сумму элементов на нечетных позициях
